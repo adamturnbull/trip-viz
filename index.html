@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Journey Schematic Prototype</title>
+    <link href="css/schematic-styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.slim.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/example-helper.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/schematic.js" charset="utf-8"></script>
+    <script>
+    var conf = {
+      minSegmentHeight : 5,
+      minLayoverHeight : 15,
+      totalHeight : 100
+    };
+    JourneySchematic.configure(conf);
+    </script>
+  </head>
+  
+  <body>
+    <h1>Journey Schematic Prototype</h1>
+    <p>Adam Turnbull,Platform Products</p>
+      <p>Creates a line-and-ball schematic, representing an API solution's segments and transfers, for use in the mobile UI for PTP results.</p>
+      <h2>Implementation</h2>
+      <p> HTML, CSS, Javascript, including a dependency on jQuery for easy DOM manipulation: this depedency can easily be removed to leave a pure JS implementation.</p>
+      <h2>Usage</h2>
+      <p>Provide a single  Rail Europe Connect API solution object to render a schematic (note, a truncated object can be used, so long as it has a duration property and an array of valid segments, per the schema):</p>
+      <p>Examples: <span class="mock-link" id="ex1">London-Lyon</span> | <span class="mock-link" id="ex2">Paris-Lyon</span> | <span class="mock-link" id="ex3">Paris-Monaco</span> | <span class="mock-link" id="ex4">London-Munich</span> | <span class="mock-link" id="ex5">London-Amsterdam</span></p>
+      <p>You can:</p>
+      <ul><li>Manipulate segment arrival/departure times to change layover durations</li>
+      <li>Manipulate individual segment.duration directly.</li>
+      <li>Manipulate arrival/departure station IDs to change between intra- and inter-station transfers</li>
+      </ul>
+      <p>In all cases, to keep the scaling logic, you must adjust solution.duration accordingly for any manipulation you make.</p>
+      <textarea id="solution" cols=100 rows=20></textarea>
+    <!-- <p><input type="submit" onClick="JourneySchematic.render(5,15,100)" value-Go"></p> -->
+      <p><input type="submit" onClick="JourneySchematic.clearAll()"></p>
+    
+    <div id="r1" class="journey-canvas">
+    </div>
+    
+    <div id="r2" class="journey-canvas">
+    <ul class="schematic" id="test-schematic">
+    </ul>
+    </div>
+    
+    <h2>Known Issues</h2>
+      <ol>
+      <li>The schematic should be fixed height, but it varies slightly case-by-case: this is because the fixed-height of short station stops is not being accounted for in the scaling that I use. This part should be re-written slightly.</li>
+      </ol>
+  </body>
+</html>

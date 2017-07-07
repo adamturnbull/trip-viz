@@ -1,0 +1,66 @@
+    #test-schematic {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .station {
+      /* Default styles for a station. Will be overriden when station has a layover, or a change of stations */
+      height: 10px;
+      width: 10px;
+      border-style: solid;
+      border-color: rgb(204,204,204);
+      border-width: 2px;
+      border-radius: 10px;
+    }
+    .half-station-top {
+      height: 5px;
+      width: 10px;
+      border-style: solid;
+      border-color: rgb(204,204,204);
+      border-width: 2px;
+      border-radius: 14px 14px 0 0;
+    }
+    .half-station-bottom {
+      height: 5px;
+      width: 10px;
+      border-style: solid;
+      border-color: rgb(204,204,204);
+      border-width: 2px;
+      border-radius: 0 0 14px 14px;
+    }
+    .segment {
+      height: 5px; /* Set by JS. This is a default min only. */
+      margin-left: 6px; /* This should be half of the width of a station circle */
+      border-left: 2px solid rgb(100,100,100);
+    }
+    .s1 {
+      border-color: rgb(136,20,106);
+    }
+    .s2 {
+      border-color: rgb(0,158,224);
+    }
+    .s3 {
+      border-color: rgb(255,91,0);
+    }
+    .s4 {
+      border-color: rgb(255,169,31);
+    }
+    .s5 {
+      border-color: rgb(87,174,93);
+    }
+    .transfer {
+      height: 5px; /* Set by JS. This is a default min only. */
+      border-left: 2px dotted rgb(204,204,204);
+      border-right: 2px dotted rgb(204,204,204);
+      width: 10px;
+    }
+    .container {
+      border: 1px solid rgb(100,100,100);
+      min-height: 150px;
+      width: 15px;
+      padding: 10px 40px 10px 40px;
+    }
+    .mock-link {
+      text-decoration: underline;
+      color: blue;
+    }
